@@ -8,7 +8,6 @@
         <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js"></script>
         <script src="jquery.bpopup.js"></script>
         <style type="text/css">
-        
             body {
                 background-image: url(debut_dark.png);
                 font-family: 'Duru Sans', tahoma;
@@ -35,8 +34,18 @@
                 font-size: 25px;
             }
             
+            div#about {
+                
+            }
+            
             div#portfolio {
                 margin: 5px 0 0 5px;
+            }
+            div#portfolio-header {
+                color: #444;
+                font-size: 0.8em;
+                font-style: italic;
+                margin-bottom: 3px;
             }
             div#portfolio img {
                 cursor: pointer;
@@ -44,7 +53,8 @@
             }
             
             .popup-text {
-                background-color: white;
+                background-image: url(low_contrast_linen.png);
+                color: #ddd;
                 display: none;
                 padding: 10px;
                 width: 800px;
@@ -83,6 +93,11 @@
                 cursor: pointer;
                 text-decoration: underline;
             }
+            .node text.popup {
+                fill: green;
+                cursor: pointer;
+                text-decoration: underline;
+            }
             path.link {
               fill: none;
               stroke: #ccc;
@@ -106,7 +121,9 @@
     <body>
         <div id="container">
             <div id="header">Kris Rogers<div class="title">Software Engineer</div></div>
+            <div id="about">About me...TODO</div>
             <div id="portfolio">
+                <div id="portfolio-header">Some examples of my work. Click to enlarge.</div>
                 <img src="resume_cloud.png" onclick="popupImage($(this));"/>
                 <img src="resume_web.png" onclick="popupImage($(this));"/>
                 <img src="monitorz.png" onclick="popupImage($(this));"/>
@@ -245,7 +262,7 @@
                             });
                       
                         nodeEnter.append("svg:text")
-                            .attr("class", function (d) { return d.popup || d.target || d.email ? "link" : null; })
+                            .attr("class", function (d) { return d.popup ? "popup" : (d.target || d.email ? "link" : null); })
                             .attr("x", function(d) { return d.children ? -10 : 10; })
                             .attr("dy", ".35em")
                             .attr("text-anchor", function(d) { return d.children ? "end" : "start"; })
@@ -338,7 +355,7 @@
             </div>
         </div>
         <span id="experience-leximancer" class="popup-text">
-            <b>Leximancer</b>
+            <b><u>Leximancer</u></b>
             <span style="float: right">2008 - Present</span>
             <br/><br/>
             Employed as a software engineer on a variety of commercial and internal projects. Began with collaboration on the company's flagship Java-based text         analytics platform before being assigned several of my own projects to manage from design to delivery. Worked in collaboration with the University of Queensland on multiple research-based software development projects.
@@ -353,13 +370,13 @@
             </ul>
         </span>
         <span id="experience-daesim" class="popup-text">
-            <b>Daesim Technologies</b>
+            <b><u>Daesim Technologies</u></b>
             <span style="float: right">2006 - 2008</span>
             <br/><br/>
             Employed as a graduate software engineer. Began with maintenance and additions to a Struts-based web application for process control and moved on to lead the development of both commercial and internal projects.
             <ul>
                 <li>Lead the development of a Struts-based Java web application for the scheduling and realtime display of maintenance activities at a coke-making plant; included database schema design and implementation in Oracle.</li>
-                <li>Created a prototype web-based tool for integrated risk assessment based on an existing Java application. Implemented drag-and-drop GUI tools using JavaScript technologies.</li>
+                <li>Created a prototype web-based tool for integrated risk assessment. Implemented drag-and-drop GUI tools using JavaScript technologies.</li>
                 <li>Collaborated on, and maintained, several web applications utilising Java technologies such as Struts, Struts 2, JasperReports, Grails and Hibernate.</li>
             </ul>
         </span>
