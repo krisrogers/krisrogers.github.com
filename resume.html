@@ -3,13 +3,15 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html;charset=utf-8"/>
+        <link href='http://fonts.googleapis.com/css?family=Montserrat|Rambla|Duru+Sans' rel='stylesheet' type='text/css'>
         <script src="http://d3js.org/d3.v3.min.js"></script>
         <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js"></script>
+        <script src="jquery.bpopup.js"></script>
         <style type="text/css">
         
             body {
                 background-image: url(debut_dark.png);
-                font-family: tahoma;
+                font-family: 'Duru Sans', tahoma;
                 margin: 0;
             }
             
@@ -22,22 +24,43 @@
             div#header {
                 background-image: url(wood_1.png);
                 color: white;
-                height: 130px;
+                height: 100px;
+                font-family: montserrat;
                 font-size: 50px;
-                padding-top: 20px;
+                padding-top: 10px;
                 text-align: center;
             }
-            
             div.title {
                 color: #4293C2;
                 font-size: 25px;
             }
+            
+            div#portfolio {
+                margin: 5px 0 0 5px;
+            }
+            div#portfolio img {
+                cursor: pointer;
+                height: 100px;
+            }
+            
+            .popup-text {
+                background-color: white;
+                display: none;
+                padding: 10px;
+                width: 800px;
+            }
+            .popup-text li {
+                padding-top: 5px;
+            }
         
             /* Vis Styles */
             div#vis {
+                font-family: rambla;
                 padding: 10px;
             }
             div#vis-header {
+                color: #aaa;
+                float: right;
                 font-size: 0.8em;
                 font-style: italic;
             }
@@ -73,6 +96,27 @@
     <body>
         <div id="container">
             <div id="header">Kris Rogers<div class="title">Software Engineer</div></div>
+            <div id="portfolio">
+                <img src="resume_cloud.png" onclick="$('#image-popup').bPopup({
+                    onOpen: function() {
+                        this.html('<img src=\'resume_cloud.png\'/ style=\'height: 600px\'>');
+                    },
+                    onClose: function() {
+                        this.empty();
+                    },
+                    position: ['auto', 100]
+                });"/>
+                <img src="resume_web.png" onclick="$('#image-popup').bPopup({
+                    onOpen: function() {
+                        this.html('<img src=\'resume_web.png\'/ style=\'height: 600px\'>');
+                    },
+                    onClose: function() {
+                        this.empty();
+                    },
+                    position: ['auto', 100]
+                });"/>
+                <span id="image-popup"></span>
+            </div>
             <div id="vis">
                 <div id="vis-header">Click node circles to expand or collapse.</div>
                 <script type="text/javascript">
@@ -83,7 +127,7 @@
                         children: [{
                             name: "Skills",
                             children: [
-                                {name: 'Commercial Development [Java, JavaScript, Python]'},
+                                {name: '6 Years Commercial Development [Java, JavaScript, Python]'},
                                 {name: 'Information Visualisation'},
                                 {name: 'Text Analytics'},
                                 {name: 'UI Design'},
@@ -97,10 +141,10 @@
                             name: "Experience",
                             children: [{
                                 name: "Leximancer",
-                                target: "https://leximancer.com/"
+                                popup: "experience-leximancer"
                             }, {
                                 name: "Daesim Technologies",
-                                target: "http://www.daesim.com/"
+                                popup: "experience-daesim"
                             }]
                         }, {
                             name: "Education",
@@ -203,7 +247,7 @@
                             });
                       
                         nodeEnter.append("svg:text")
-                            .attr("class", function (d) { return d.target || d.email ? "link" : null; })
+                            .attr("class", function (d) { return d.popup || d.target || d.email ? "link" : null; })
                             .attr("x", function(d) { return d.children ? -10 : 10; })
                             .attr("dy", ".35em")
                             .attr("text-anchor", function(d) { return d.children ? "end" : "start"; })
@@ -216,6 +260,9 @@
                                 }
                                 else if (d.email) {
                                     window.location.href = "mailto:"+d.email;
+                                }
+                                else if (d.popup) {
+                                    $('#' + d.popup).bPopup();
                                 }
                             });
                       
@@ -292,5 +339,31 @@
                 </script>
             </div>
         </div>
+        <span id="experience-leximancer" class="popup-text">
+            <b>Leximancer</b>
+            <span style="float: right">2008 - Present</span>
+            <br/><br/>
+            Employed as a software engineer on a variety of commercial and internal projects. Began with collaboration on the company's flagship Java-based text         analytics platform before being assigned several of my own projects to manage from design to delivery. Worked in collaboration with the University of Queensland on multiple research-based software development projects.
+            <ul>
+                <li>Created a modern web interface for the company's flagship browser-based text analytics software. Utilised emerging JavaScript frameworks such as ExtJS to provide a feature rich desktop-like interface. Implemented complex, interactive information visualisations with browser technologies (JavaScript, SVG, HTML/CSS).</li>
+                <li>Lead the development of a recurrence analysis tool that is the result of ongoing research at the University of Queensland. The software was built as both a portal offering and desktop product using server (Python, Django, MongoDB, CherryPy) and client (JavaScript, ExtJS, RaphaelJS) technologies. Implemented and collaborated on patented text analysis algorithms.</li>
+                <li>Designed and implemented a multi-threaded web crawling library in Python to support our software's requirement for recursive searching on web data. Also developed a web wrapper for the library that provided a user interface and published a REST API for integration with other services.</li>
+                <li>Designed and implemented a browser-based software prototype for analysing trends in Twitter data. Utilised JavaScript to provide multiple interactive data visualisations. Created command-line tools in Python to search, download and process Tweets via the Twitter API.</li>
+                <li>Collaborated on a conceptual search tool for finding articles within Elsevier's ScienceDirect database. Utilised Amazon EC2 API to synchronise RSS updates from Elsevier with a private copy of the content database hosted on the Amazon cloud.</li>
+                <li>As part of a federal grant, implemented a hierarchical codebook classification system to automatically identify and describe counter-terrorism events within documents both uploaded and fetched from web sources (blogs, government web sites).</li>
+                <li>Created comprehensive quantitative reports in PDF and HTML using the iText library in Java.</li>
+            </ul>
+        </span>
+        <span id="experience-daesim" class="popup-text">
+            <b>Daesim Technologies</b>
+            <span style="float: right">2006 - 2008</span>
+            <br/><br/>
+            Employed as a graduate software engineer. Began with maintenance and additions to a Struts-based web application for process control and moved on to lead the development of both commercial and internal projects.
+            <ul>
+                <li>Lead the development of a Struts-based Java web application for the scheduling and realtime display of maintenance activities at a coke-making plant; included database schema design and implementation in Oracle.</li>
+                <li>Created a prototype web-based tool for integrated risk assessment based on an existing Java application. Implemented drag-and-drop GUI tools using JavaScript technologies.</li>
+                <li>Collaborated on, and maintained, several web applications utilising Java technologies such as Struts, Struts 2, JasperReports, Grails and Hibernate.</li>
+            </ul>
+        </span>
     </body>
 </html>
