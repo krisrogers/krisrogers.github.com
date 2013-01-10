@@ -40,7 +40,7 @@
             }
             div#portfolio img {
                 cursor: pointer;
-                height: 100px;
+                height: 95px;
             }
             
             .popup-text {
@@ -90,31 +90,29 @@
             }
         </style>
         <script>
-            
+            function popupImage (img) {
+                $('#image-popup').bPopup({
+                    onOpen: function() {
+                        this.html('<img src="' + img.attr('src') + '" style="height: 600px">');
+                    },
+                    onClose: function() {
+                        this.empty();
+                    },
+                    position: ['auto', 70]
+                });
+            }
         </script>
     </head>
     <body>
         <div id="container">
             <div id="header">Kris Rogers<div class="title">Software Engineer</div></div>
             <div id="portfolio">
-                <img src="resume_cloud.png" onclick="$('#image-popup').bPopup({
-                    onOpen: function() {
-                        this.html('<img src=\'resume_cloud.png\'/ style=\'height: 600px\'>');
-                    },
-                    onClose: function() {
-                        this.empty();
-                    },
-                    position: ['auto', 100]
-                });"/>
-                <img src="resume_web.png" onclick="$('#image-popup').bPopup({
-                    onOpen: function() {
-                        this.html('<img src=\'resume_web.png\'/ style=\'height: 600px\'>');
-                    },
-                    onClose: function() {
-                        this.empty();
-                    },
-                    position: ['auto', 100]
-                });"/>
+                <img src="resume_cloud.png" onclick="popupImage($(this));"/>
+                <img src="resume_web.png" onclick="popupImage($(this));"/>
+                <img src="monitorz.png" onclick="popupImage($(this));"/>
+                <img src="monitorz2.png" onclick="popupImage($(this));"/>
+                <img src="discursis.png" onclick="popupImage($(this));"/>
+                <img src="discursis2.png" onclick="popupImage($(this));"/>
                 <span id="image-popup"></span>
             </div>
             <div id="vis">
