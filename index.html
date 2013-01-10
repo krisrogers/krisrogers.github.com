@@ -51,6 +51,12 @@
                 font-size: 25px;
             }
             
+            div#browser-warning {
+                background-color: #FF6666;
+                border: 1px solid red;
+                font-size: 13px;
+            }
+            
             div#picture {
                 float: left;
                 width: 230px;
@@ -147,11 +153,21 @@
                     position: ['auto', 70]
                 });
             }
+            
+            function checkBrowser () {
+                if ($.browser.msie) {
+                    version = parseInt($.browser.version, 10);
+                    if (version < 9) {
+                        $('#browser-warning').show();
+                    }
+                }
+            }
         </script>
     </head>
-    <body>
+    <body onload="checkBrowser();">
         <div id="container">
             <div id="header">Kris Rogers<div class="title">Software Engineer</div></div>
+            <div id="browser-warning" style="display:none;">It appears you are using an old version of Internt Explorer, which does not support features required by this page. Please upgrade :)</div>
             <div id="picture"><a href="http://en.wikipedia.org/wiki/Mount_Kinabalu" target="_blank"><img src="me.jpg" style="width: 250px; float:left;" title="Mount Kinabalu summit, 2012"/></a></div>
             <div id="about"><i>A bit about me...</i>
                 <ul style="list-style: square">
