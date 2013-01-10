@@ -2,6 +2,7 @@
 <!DOCTYPE html>
 <html>
     <head>
+        <title>Kris Rogers, Software Engineer</title>
         <meta http-equiv="Content-Type" content="text/html;charset=utf-8"/>
         <link href='http://fonts.googleapis.com/css?family=Montserrat|Rambla|Duru+Sans' rel='stylesheet' type='text/css'>
         <script src="http://d3js.org/d3.v3.min.js"></script>
@@ -14,6 +15,14 @@
                 margin: 0;
             }
             
+            body a {
+                color: blue;
+                text-decoration: none;
+            }
+            body a:hover {
+                text-decoration: underline;
+            }
+            
             div#container {
                 background-image: url(gray_jean.png);
                 margin: 0 auto;
@@ -23,10 +32,10 @@
             div#header {
                 background-image: url(wood_1.png);
                 color: white;
-                height: 100px;
+                height: 120px;
                 font-family: montserrat;
                 font-size: 50px;
-                padding-top: 10px;
+                padding-top: 20px;
                 text-align: center;
             }
             div.title {
@@ -34,18 +43,30 @@
                 font-size: 25px;
             }
             
+            div#picture {
+                float: left;
+                width: 230px;
+            }
+            div#picture img {
+                padding: 20px 0 0 5px;
+                width: 230px;
+            }
+            
             div#about {
-                
+                color: #444;
+                float: right;
+                padding: 20px 5px;
+                width: 720px;
             }
             
             div#portfolio {
-                margin: 5px 0 0 5px;
+                padding: 5px 0 0 5px;
             }
             div#portfolio-header {
                 color: #444;
-                font-size: 0.8em;
+                font-size: 0.9em;
                 font-style: italic;
-                margin-bottom: 3px;
+                margin: 10px 0;
             }
             div#portfolio img {
                 cursor: pointer;
@@ -65,13 +86,12 @@
         
             /* Vis Styles */
             div#vis {
-                font-family: rambla;
+                margin-top: 15px;
                 padding: 10px;
             }
             div#vis-header {
-                color: #aaa;
-                float: right;
-                font-size: 0.8em;
+                color: #444;
+                font-size: 0.9em;
                 font-style: italic;
             }
             .node circle {
@@ -90,6 +110,7 @@
             }
             .node text.link {
                 fill: blue;
+                font-family: rambla;
                 cursor: pointer;
                 text-decoration: underline;
             }
@@ -121,7 +142,16 @@
     <body>
         <div id="container">
             <div id="header">Kris Rogers<div class="title">Software Engineer</div></div>
-            <div id="about">About me...TODO</div>
+            <div id="picture"><a href="http://en.wikipedia.org/wiki/Mount_Kinabalu" target="_blank"><img src="me.jpg" style="width: 250px; float:left;" title="Mount Kinabalu summit, 2012"/></a></div>
+            <div id="about"><i>A bit about me...</i>
+                <ul style="list-style: square">
+                    <li>My passion is for building innovative products and services that enrich the user experience.</li>
+                    <li>I am driven to learn how things work and to improve them.</li>
+                    <li>I will always seek to continue learning and try to provide a meaningful contribution to this world.</li>
+                    <li>My current project - a free, qualitative text analysis service - <a href="http://textisbeautiful.net" target="_blank">Text Is Beautiful</a>.</li>
+                </ul>
+            </div>
+            <div style="clear:both"/>
             <div id="portfolio">
                 <div id="portfolio-header">Some examples of my work. Click to enlarge.</div>
                 <img src="resume_cloud.png" onclick="popupImage($(this));"/>
@@ -133,7 +163,7 @@
                 <span id="image-popup"></span>
             </div>
             <div id="vis">
-                <div id="vis-header">Click node circles to expand or collapse.</div>
+                <div id="vis-header">An interactive verson of my resume. Click the blue-ringed circles to expand or collapse nodes.</div>
                 <script type="text/javascript">
                 
                     // Vis data
