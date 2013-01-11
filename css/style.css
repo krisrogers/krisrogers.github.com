@@ -1,0 +1,137 @@
+body {
+    background-image: url(../images/debut_dark.png);
+    font-family: 'Duru Sans', tahoma;
+    margin: 0;
+}
+
+a {
+    color: #4D9494;
+    text-decoration: none;
+}
+a:hover {
+    text-decoration: underline;
+}
+
+li {
+    padding-top: 5px;
+}
+
+img {
+    border: none;
+}
+
+div#container {
+    background-image: url(../images/gray_jean.png);
+    margin: 0 auto;
+    width: 1000px;
+}
+
+div#header {
+    background-image: url(../images/wood_1.png);
+    color: white;
+    height: 120px;
+    font-family: montserrat;
+    font-size: 50px;
+    padding-top: 20px;
+    text-align: center;
+}
+div.title {
+    color: #7171C6;
+    font-size: 25px;
+}
+
+div#browser-warning {
+    background-color: #FF6666;
+    border: 1px solid red;
+    font-size: 13px;
+}
+
+div.quote {
+    color: #4D4DB8;
+    padding: 5px 0;
+    text-align: center;
+}
+
+div#picture {
+    float: left;
+    width: 230px;
+}
+div#picture img {
+    padding: 10px 0 0 5px;
+    width: 230px;
+}
+
+div#about {
+    color: #444;
+    float: right;
+    padding: 10px 5px 5px 20px;
+    width: 720px;
+}
+
+div#portfolio {
+    padding: 5px 0 0 5px;
+}
+div#portfolio-header {
+    color: #444;
+    font-size: 0.9em;
+    font-style: italic;
+    margin: 10px 0;
+}
+div#portfolio img {
+    cursor: pointer;
+    height: 95px;
+}
+
+#image-popup {
+    color: white;
+    text-align: center;
+}
+
+.popup-text {
+    background-image: url(../images/low_contrast_linen.png);
+    color: #ddd;
+    display: none;
+    padding: 10px;
+    width: 800px;
+}
+
+/* Vis Styles */
+div#vis {
+    margin-top: 15px;
+    padding: 10px;
+}
+div#vis-header {
+    color: #444;
+    font-size: 0.9em;
+    font-style: italic;
+}
+.node circle {
+    cursor: pointer;
+    fill: #fff;
+    stroke: steelblue;
+    stroke-width: 1.5px;
+}
+.node circle.leaf {
+    cursor: default;
+    fill: white !important;
+    stroke: #ccc;
+}
+.node text {
+    cursor: default;
+}
+.node text.link {
+    fill: #4D9494;
+    font-family: rambla;
+    cursor: pointer;
+    text-decoration: underline;
+}
+.node text.popup {
+    fill: green;
+    cursor: pointer;
+    text-decoration: underline;
+}
+path.link {
+  fill: none;
+  stroke: #ccc;
+  stroke-width: 1.5px;
+}
