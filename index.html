@@ -16,7 +16,7 @@
             }
             
             a {
-                color: blue;
+                color: #4D9494;
                 text-decoration: none;
             }
             a:hover {
@@ -47,7 +47,7 @@
                 text-align: center;
             }
             div.title {
-                color: #4293C2;
+                color: #7171C6;
                 font-size: 25px;
             }
             
@@ -57,19 +57,25 @@
                 font-size: 13px;
             }
             
+            div.quote {
+                color: #4D4DB8;
+                padding: 5px 0;
+                text-align: center;
+            }
+            
             div#picture {
                 float: left;
                 width: 230px;
             }
             div#picture img {
-                padding: 20px 0 0 5px;
+                padding: 10px 0 0 5px;
                 width: 230px;
             }
             
             div#about {
                 color: #444;
                 float: right;
-                padding: 20px 5px;
+                padding: 10px 5px 5px 20px;
                 width: 720px;
             }
             
@@ -125,7 +131,7 @@
                 cursor: default;
             }
             .node text.link {
-                fill: blue;
+                fill: #4D9494;
                 font-family: rambla;
                 cursor: pointer;
                 text-decoration: underline;
@@ -168,6 +174,7 @@
         <div id="container">
             <div id="header">Kris Rogers<div class="title">Software Engineer</div></div>
             <div id="browser-warning" style="display:none;">It appears you are using an old version of Internt Explorer, which does not support features required by this page. Please upgrade :)</div>
+            <div class="quote"><i>"The privilege of a lifetime is being who you are."</i> ~ <a href="http://en.wikipedia.org/wiki/Joseph_Campbell" target="_blank">Joseph Campbell</a></div>
             <div id="picture"><a href="http://en.wikipedia.org/wiki/Mount_Kinabalu" target="_blank"><img src="me.jpg" style="width: 250px; float:left;" title="Mount Kinabalu summit, 2012"/></a></div>
             <div id="about"><i>A bit about me...</i>
                 <ul style="list-style: square">
@@ -287,6 +294,7 @@
                     toggle(root.children[1]);
                     toggle(root.children[2]);
                     toggle(root.children[3]);
+                    toggle(root.children[4]);
                     
                     update(root);
             
@@ -410,6 +418,7 @@
                     }
                 </script>
             </div>
+            <div class="quote"><i>"Certitude belongs exclusively to those who only own one encyclopedia."</i> ~ <a href="http://en.wikipedia.org/wiki/Robert_Anton_Wilson" target="_blank">Robert Anton Wilson</a></div>
         </div>
         <span id="experience-leximancer" class="popup-text">
             <b><u>Leximancer</u></b>
