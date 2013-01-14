@@ -202,8 +202,7 @@ var JSON = {
                 {name: "Operating Systems"},
                 {name: "Embedded Systems"},
                 {name: "SDLC"},
-                {name: "Aritificial Neural Networks"},
-                {name: "Project Management"}
+                {name: "Aritificial Neural Networks"}
             ]
         }]
     }, {
