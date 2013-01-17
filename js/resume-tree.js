@@ -62,17 +62,19 @@ function update(source) {
     nodeEnter.append("svg:circle")
         .attr("class", function (d) { return d.children || d._children ? "branch" : "leaf"})
         .attr("r", 1e-6)
-        .on("click", function(d) { toggle(d); update(d); })
+        .attr("cursor", function (d) { return d.depth == 0 ? "default" : "pointer"})
+        .on("click", function(d) { if (d.depth == 0) { return; } toggle(d); update(d); })
         .style("fill", function(d) {
-            return d.children ? "white" : "lightsteelblue";
-        });
+            return d.depth == 0 ? "#999" : d.children ? "white" : "lightsteelblue";
+        })
+        .style("stroke", function (d) { return d.depth == 0 ? '#5A5A9E' : 'steelblue'});
   
     nodeEnter.append("svg:text")
         .attr("class", function (d) { return d.popup ? "popup" : (d.target || d.email ? "link" : null); })
         .attr("x", function(d) { return d.children ? -10 : 10; })
         .attr("dy", ".35em")
         .attr("text-anchor", function(d) { return d.children ? "end" : "start"; })
-        .text(function(d) { return d.name; })
+        .text(function(d) { return d.depth == 0 ? '' : d.name; })
         .attr("fill-opacity", 1e-6)
         .attr("font-size", function (d) { return 1 - (.1 * d.depth) + "em"})
         .on("click", function(d) {
@@ -83,7 +85,7 @@ function update(source) {
                 window.location.href = "mailto:"+d.email;
             }
             else if (d.popup) {
-                $('#' + d.popup).bPopup();
+                $('#' + d.popup).bPopup({closeClass: 'popup-close-link-exp'});
             }
         });
   
@@ -94,7 +96,8 @@ function update(source) {
   
     nodeUpdate.select("circle")
         .attr("r", 4.5)
-        .style("fill", function(d) { return d.children ? "white" : "lightsteelblue"; });
+        .style("fill", function(d) { return d.depth == 0 ? "#999" : d.children ? "white" : "lightsteelblue"; })
+        .style("stroke", function (d) { return d.depth == 0 ? '#5A5A9E' : 'steelblue'});
   
     nodeUpdate.select("text").style("fill-opacity", 1);
   

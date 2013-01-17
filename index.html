@@ -5,7 +5,7 @@
         <title>Kris Rogers, Software Engineer</title>
         <meta http-equiv="Content-Type" content="text/html;charset=utf-8"/>
         
-        <link href='http://fonts.googleapis.com/css?family=Montserrat|Rambla|Duru+Sans' rel='stylesheet' type='text/css'>
+        <link href='http://fonts.googleapis.com/css?family=Rambla|Denk+One|Donegal+One|Monda' rel='stylesheet' type='text/css'>
         
         <link rel="stylesheet" type="text/css" href="css/style.css"/>
             
@@ -18,13 +18,15 @@
         <script>
             function popupImage (img) {
                 $('#image-popup').bPopup({
+                    closeClass: 'popup-close-link',
                     onOpen: function() {
-                        this.html('<div>' + img.attr('title') + '</div><img src="' + img.attr('src') + '" style="height: 600px">');
+                        this.html('<div>' + img.attr('title') + '</div><img src="' + img.attr('src') + '" style="height: 600px"><div class="popup-close"><span class="popup-close-link">Close</span></div>');
                     },
                     onClose: function() {
                         this.empty();
                     },
-                    position: ['auto', 70]
+                    opacity: 0.85,
+                    position: ['auto', 'auto']
                 });
             }
             
@@ -34,54 +36,91 @@
                     if (version < 9) {
                         $('#browser-warning').show();
                     }
+                    $('#picture').append('<img src="images/me.jpg"/>');
                 }
+                else {
+                    $('#picture').append('<canvas id="canvas-image"></canvas>');
+                    drawImage();
+                }
+            }
+            
+            function drawImage () {
+                
+                var canvas = document.getElementById('canvas-image');
+                var context = canvas.getContext('2d');
+        
+                var imageObj = new Image();
+                imageObj.onload = function() {
+                    canvas.width = this.width;
+                    canvas.height = this.height;
+                    
+                    context.drawImage(this, 0, 0);
+                    
+                    // Fade the edges
+                    context.globalCompositeOperation = 'destination-out';
+                    context.globalAlpha = 0.9;
+                    var d = 5, h = canvas.height, w = canvas.width, s = 0;
+                    for (var i = 0; i < 3; i++) {
+                        s = d * i;
+                        context.globalAlpha -= 0.2 * i;
+                        context.fillRect(s, s, w - (s*2), d);
+                        context.fillRect(w - (d * (i+1)), s, d, h - (s*2));
+                        context.fillRect(s, s, d, h - (s*2));
+                        context.fillRect(s, h - (d * (i+1)), w - (s*2), d);
+                    }
+                };
+        
+                imageObj.src = 'images/me.jpg';
             }
         </script>
     </head>
     <body onload="checkBrowser();initTree();">
-        <a href="https://github.com/krisrogers/krisrogers.github.com" target="_blank"><img style="position: absolute; top: 0; right: 30px; border: 0;" src="images/github-ribbon.png" alt="Fork me on GitHub"></a>
+        <a href="https://github.com/krisrogers/krisrogers.github.com" target="_blank"><img style="position: absolute; top: 0; left: 30px; border: 0;" src="images/github-ribbon.png" alt="Fork me on GitHub"></a>
         <div id="container">
             <div id="header">Kris Rogers<div class="title">Software Engineer</div></div>
             <div id="browser-warning" style="display:none;">It appears you are using an old version of Internt Explorer, which does not support features required by this page. Please upgrade :)</div>
-            <div id="picture"><a href="http://en.wikipedia.org/wiki/Mount_Kinabalu" target="_blank"><img src="images/me.jpg" style="width: 250px; float:left;" title="Mount Kinabalu summit, 2012"/></a></div>
-            <div id="about"><i>A bit about me...</i>
+            <div id="about">
+                <h2>A few words</h2>
                 <ul style="list-style: square">
-                    <li>My passion is for building innovative products and services that enrich the user experience.</li>
+                    <li>My passion is for building innovative products and services that enrich the user experience instead of complicating it.</li>
                     <li>I am driven to learn how things work and to improve them.</li>
-                    <li>I will always seek to challenge myself and expand my horizons.</li>
+                    <li>I will always look to challenge myself and broaden my horizons.</li>
                     <li>My current project - a free, qualitative text analysis service - <a href="http://textisbeautiful.net" target="_blank">Text Is Beautiful</a>.</li>
                     <li>My resume as a <a href="Kris Rogers, Resume.pdf" target="_blank">PDF</a>.</li>
                 </ul>
             </div>
-            <div style="clear:both"/>
+            <div id="picture" title="Mount Kinabalu summit, 2012">
+            </div>
+            <div style="clear:both"></div>
             <div id="portfolio">
-                <div id="portfolio-header">Some examples of my work. Click to enlarge.</div>
-                <img src="images/resume_cloud.png" onclick="popupImage($(this));" title="My resume as a concept cloud, generated by Text Is Beautiful."/>
-                <img src="images/resume_web.png" onclick="popupImage($(this));" title="My resume as a concept web, generated by Text Is Beautiful."/>
-                <img src="images/monitorz.png" onclick="popupImage($(this));" title="A prototype application for analysying Twitter trends; Sentiment over time."/>
-                <img src="images/monitorz2.png" onclick="popupImage($(this));" title="A prototype application for analysying Twitter trends; Storyboard visualisation."/>
-                <img src="images/discursis.png" onclick="popupImage($(this));" title="Discursis - a conceptual recurrence tool; Main view."/>
-                <img src="images/discursis2.png" onclick="popupImage($(this));" title="Discursis - a conceptual recurrence tool; Detailed view."/>
+                <h2>Some examples of my work</h2>
+                <div id="portfolio-images">
+                    <img src="images/monitorz.png" onclick="popupImage($(this));" title="A prototype application for analysying Twitter trends; Sentiment over time."/>
+                    <img src="images/monitorz2.png" onclick="popupImage($(this));" title="A prototype application for analysying Twitter trends; Storyboard visualisation."/>
+                    <img src="images/resume_cloud.png" onclick="popupImage($(this));" title="My resume as a concept cloud, generated by Text Is Beautiful."/>
+                    <img src="images/resume_web.png" onclick="popupImage($(this));" title="My resume as a concept web, generated by Text Is Beautiful."/>
+                    <img src="images/discursis.png" onclick="popupImage($(this));" title="Discursis - a conceptual recurrence tool; Main view."/>
+                    <img src="images/discursis2.png" onclick="popupImage($(this));" title="Discursis - a conceptual recurrence tool; Detailed view."/>
                 <span id="image-popup"></span>
+                </div>
             </div>
             <div id="vis">
-                <div id="vis-header">An interactive verson of my resume. Click the blue-ringed circles to expand or collapse nodes and green links for more information.</div>
+                <h2>Interactive resume. Try clicking things!</h2>
             </div>
         </div>
         <span id="experience-leximancer" class="popup-text">
             <b><u>Leximancer</u></b>
             <span style="float: right">2008 - Present</span>
             <br/><br/>
-            Employed as a software engineer on a variety of commercial and internal projects. Began with collaboration on the company's flagship Java-based text         analytics platform before being assigned several of my own projects to manage from design to delivery. Worked in collaboration with the University of Queensland on multiple research-based software development projects.
+            Employed as a software engineer on a variety of commercial and internal projects. Managed numerous projects from design to delivery. Worked in collaboration with the University of Queensland on multiple research-based software development projects.
             <ul>
-                <li>Created a modern web interface for the company's flagship browser-based text analytics software. Utilised emerging JavaScript frameworks such as ExtJS to provide a feature rich desktop-like interface. Implemented complex, interactive information visualisations with browser technologies (JavaScript, SVG, HTML/CSS).</li>
+                <li>Created a modern web interface for the company's text analytics platform. Utilised emerging JavaScript frameworks such as ExtJS and RapaehlJS to provide a feature rich desktop-like interface with complex, interactive information visualisations.</li>
                 <li>Lead the development of a recurrence analysis tool (<a href="http://www.discursis.net" target="_blank">Discursis</a>) that is the result of ongoing research at the University of Queensland. The software was built as both a portal offering and desktop product using server (Python, Django, MongoDB, CherryPy) and client (JavaScript, ExtJS, RaphaelJS) technologies.</li>
                 <li>Designed and implemented a multi-threaded web crawling library in Python to support our software's requirement for recursive searching on web data. Also developed a web wrapper for the library that provided a user interface and published a REST API for integration with other services.</li>
                 <li>Designed and implemented a browser-based software prototype for analysing trends in Twitter data. Utilised JavaScript to provide multiple interactive data visualisations. Created command-line tools in Python to search, download and process Tweets via the Twitter API.</li>
-                <li>Collaborated on a conceptual search tool for finding articles within Elsevier's ScienceDirect database. Utilised Amazon EC2 API to synchronise RSS updates from Elsevier with a private copy of the content database hosted on the Amazon cloud.</li>
                 <li>As part of a federal grant, implemented a hierarchical codebook classification system to automatically identify and describe counter-terrorism events within documents both uploaded and fetched from web sources (blogs, government web sites).</li>
-                <li>Created comprehensive quantitative reports in PDF and HTML using the iText library in Java.</li>
             </ul>
+            <div class="popup-close"><span class="popup-close-link-exp">Close</span></div>
         </span>
         <span id="experience-daesim" class="popup-text">
             <b><u>Daesim Technologies</u></b>
@@ -93,6 +132,7 @@
                 <li>Created a prototype web-based tool for integrated risk assessment. Implemented drag-and-drop GUI tools using JavaScript technologies.</li>
                 <li>Collaborated on, and maintained, several web applications utilising Java technologies such as Struts, Struts 2, JasperReports, Grails and Hibernate.</li>
             </ul>
+            <div class="popup-close"><span class="popup-close-link-exp">Close</span></div>
         </span>
     </body>
 </html>

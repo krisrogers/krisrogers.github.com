@@ -1,14 +1,18 @@
+/* General */
 body {
-    background-image: url(../images/debut_dark.png);
-    font-family: 'Duru Sans', tahoma;
+    background-image: url(../images/gray_jean.png);
+    font-family: monda, tahoma;
     margin: 0;
 }
 
-a {
-    color: #4D9494;
+a, text.link {
+    color: #5A5A9E;
+    cursor: pointer;
+    fill: #5A5A9E;
     text-decoration: none;
 }
-a:hover {
+a:hover, text.link:hover {
+    cursor: pointer;
     text-decoration: underline;
 }
 
@@ -20,73 +24,97 @@ img {
     border: none;
 }
 
+h2 {
+    color: #444;
+    font-family: 'Donegal One', tahoma;
+    font-size: 1.5em;
+    margin-top: 20px;
+}
+
+div#browser-warning {
+    background-color: #FEEFB3;
+    background-image: url('../images/warning.png');
+    background-repeat: no-repeat;
+    background-position: 10px center;
+    border: 1px solid;
+    color: #9F6000;
+    margin: 10px 0px;
+    padding:15px 10px 15px 50px;
+}
+
 div#container {
-    background-image: url(../images/gray_jean.png);
+    background: transparent;
     margin: 0 auto;
     width: 1000px;
 }
 
-div#header {
-    background-image: url(../images/wood_1.png);
-    color: white;
-    height: 120px;
-    font-family: montserrat;
-    font-size: 50px;
-    padding-top: 20px;
+.popup-close {
     text-align: center;
+}
+.popup-close-link, .popup-close-link-exp {
+    cursor: pointer;
+    font-size: 20px;
+    text-decoration: underline;
+}
+/**/
+
+/* Header */
+div#header {
+    color: #444;
+    height: 180px;
+    font-family: 'Denk One';
+    font-size: 100px;
+    padding-top: 10px;
+    text-align: right;
 }
 div.title {
-    color: #7171C6;
+    color: #5A5A9E;
     font-size: 25px;
 }
+/**/
 
-div#browser-warning {
-    background-color: #FF6666;
-    border: 1px solid red;
-    font-size: 13px;
-}
-
-div.quote {
-    color: #4D4DB8;
-    padding: 5px 0;
-    text-align: center;
-}
-
+/* Picture */
 div#picture {
-    float: left;
-    width: 230px;
+    float: right;
+    height: 200px;
+    margin-top: 15px;
+    width: 267px;
 }
 div#picture img {
-    padding: 10px 0 0 5px;
-    width: 230px;
+    margin-top: 20px;
 }
+div#picture canvas {
+}
+/**/
 
+/* About */
 div#about {
     color: #444;
-    float: right;
-    padding: 10px 5px 5px 20px;
-    width: 720px;
+    float: left;
+    padding: 0 5px 5px 0;
+    width: 700px;
 }
+/**/
 
+/* Portfolio */
 div#portfolio {
-    padding: 5px 0 0 5px;
+    margin-top: 20px;
 }
-div#portfolio-header {
-    color: #444;
-    font-size: 0.9em;
-    font-style: italic;
-    margin: 10px 0;
+div#portfolio-images {
+    padding: 10px 0 0 40px;
 }
 div#portfolio img {
+    border: 3px solid #444;
     cursor: pointer;
-    height: 95px;
+    height: 85px;
 }
-
 #image-popup {
     color: white;
     text-align: center;
 }
+/**/
 
+/* Resume Vis */
 .popup-text {
     background-image: url(../images/low_contrast_linen.png);
     color: #ddd;
@@ -95,35 +123,25 @@ div#portfolio img {
     width: 800px;
 }
 
-/* Vis Styles */
 div#vis {
-    margin-top: 15px;
-    padding: 10px;
+    
+    padding-top: 10px;
 }
-div#vis-header {
-    color: #444;
-    font-size: 0.9em;
-    font-style: italic;
+div#vis svg {
+    font-size: 1.2em;
+    margin-left: 75px;
 }
 .node circle {
-    cursor: pointer;
     fill: #fff;
-    stroke: steelblue;
     stroke-width: 1.5px;
 }
 .node circle.leaf {
     cursor: default;
     fill: white !important;
-    stroke: #ccc;
+    stroke: #ccc !important;
 }
 .node text {
     cursor: default;
-}
-.node text.link {
-    fill: #4D9494;
-    font-family: rambla;
-    cursor: pointer;
-    text-decoration: underline;
 }
 .node text.popup {
     fill: green;
@@ -135,3 +153,4 @@ path.link {
   stroke: #ccc;
   stroke-width: 1.5px;
 }
+/**/
