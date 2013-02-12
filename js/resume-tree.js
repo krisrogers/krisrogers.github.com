@@ -214,8 +214,7 @@ var JSON = {
             {name: "Cooking"},
             {name: "Drums"},
             {name: "Philosophy, Metaphysics"},
-            {name: "Physical Fitness"},
-            {name: "Self-learning"},
+            {name: "Learning"}
         ]
     }]
 };
