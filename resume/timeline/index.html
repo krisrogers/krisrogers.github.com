@@ -1,0 +1,65 @@
+<html>
+    <head>
+        <title>Career Timeline</title>
+        <link rel="stylesheet" type="text/css" href="style.css" media="screen" />
+    </head>
+    <body>
+        <div class="container">
+            <svg>
+                <defs>
+                     <linearGradient id="g0" gradientUnits="userSpaceOnUse" x1="100%" y1="0%" x2="100%" y2="100%">
+                        <stop stop-opacity="1.0" stop-color="#CCC" offset="0"/>
+                        <stop stop-opacity="0.1" stop-color="#CCC" offset="1"/>
+                    </linearGradient>
+                    <linearGradient id="g1" gradientUnits="userSpaceOnUse" x1="100%" y1="0%" x2="100%" y2="100%">
+                        <stop stop-opacity="1.0" stop-color="#F661DD" offset="0"/>
+                        <stop stop-opacity="0.1" stop-color="#F661DD" offset="1"/>
+                    </linearGradient>
+                    <linearGradient id="g2" gradientUnits="userSpaceOnUse" x1="100%" y1="0%" x2="100%" y2="100%">
+                        <stop stop-opacity="1.0" stop-color="#793C6A" offset="0"/>
+                        <stop stop-opacity="0.1" stop-color="#793C6A" offset="1"/>
+                    </linearGradient>
+                    <linearGradient id="g3" gradientUnits="userSpaceOnUse" x1="100%" y1="0%" x2="100%" y2="100%">
+                        <stop stop-opacity="1.0" stop-color="green" offset="0"/>
+                        <stop stop-opacity="0.1" stop-color="green" offset="1"/>
+                    </linearGradient>
+                </defs>
+            </svg>
+        </div>
+        <script id="data" type="application/json">
+            {
+                "COLOURS": ["#F661DD", "#793C6A", "green"],
+                "HISTORY": [
+                    {
+                        "startYear": 2006,
+                        "endYear": 2008,
+                        "company": "Daesim",
+                        "role": "Software Engineer",
+                        "summary": "TODO",
+                        "years": 1.5
+                    },
+                    {
+                        "startYear": 2008,
+                        "endYear": 2013,
+                        "company": "Leximancer",
+                        "role": "Software Engineer",
+                        "summary": "TODO",
+                        "years": 5
+                    },
+                    {
+                        "startYear": 2013,
+                        "endYear": 2015,
+                        "company": "Kapiche",
+                        "role": "Founder, Chief Architect",
+                        "summary": "As co-founder of Kapiche I have been heavily involved in R&D underpinning the creation of a cutting-edge Python-based text-indexing & analysis platform. Moreover, I have held an essential role in the development of our web-based knowledge discovery and research tool.",
+                        "years": 2.5
+                    }
+                ],
+                "TOTAL_YEARS": 9
+            }
+        </script>
+        <script src="d3.min.js"></script>
+        <script src="util.js"></script>
+        <script src="timeline.js"></script>
+    </body>
+</html>
