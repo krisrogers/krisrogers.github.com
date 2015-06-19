@@ -1,10 +1,14 @@
 <html>
     <head>
         <title>Career Timeline</title>
+        <link href="opentip.css" rel="stylesheet" type="text/css" />
         <link rel="stylesheet" type="text/css" href="style.css" media="screen" />
+        <link href='http://fonts.googleapis.com/css?family=Raleway:400,700' rel='stylesheet' type='text/css'>
     </head>
     <body>
         <div class="container">
+            <h1>Career Timeline</h1>
+            <h4>Hover over arc segments to explore major projects. Alternatively, find a full version of my resume <a href="../resume">here</a>.</h4>
             <svg>
                 <defs>
                      <linearGradient id="g0" gradientUnits="userSpaceOnUse" x1="100%" y1="0%" x2="100%" y2="100%">
@@ -35,30 +39,97 @@
                         "endYear": 2008,
                         "company": "Daesim",
                         "role": "Software Engineer",
-                        "summary": "TODO",
-                        "years": 1.5
+                        "summary": "&bull; Commercial Java web applications for control systems management and maintenance.",
+                        "years": 1.5,
+                        "facets": [
+                            {
+                                "name": "Activity Scheduling Application", 
+                                "value": 0.75,
+                                "description": "Lead the development of a real-time activity scheduling application for a coke-making plant utilising Java, Struts and Oracle. It supported dynamic views of the database by providing users with a bespoke, JavaScript-based Query builder interface."
+                            },
+                            {
+                                "name": "Risk Assesment Prototype",
+                                "value": 0.25,
+                                "description": "Implemented a risk assessment prototype using ExtJS and RaphaelJS that provided advanced, interaction-driven functionality such as drag-and-drop style construction of complex system schematics."
+                            }
+                        ]
                     },
                     {
                         "startYear": 2008,
                         "endYear": 2013,
                         "company": "Leximancer",
                         "role": "Software Engineer",
-                        "summary": "TODO",
-                        "years": 5
+                        "summary": "&bull; Commercial, Java-based text analytics products (SaaS & desktop software).<br>&bull; Bespoke product development, driven by industry collaboration.<br>&bull; Rapid, investigative prototyping of data analytics products.<br>&bull; Advanced, interactive data visualisation for exploratory and inferential analysis.",
+                        "years": 5,
+                        "facets": [
+                            {
+                                "name": "Text Analytics UI",
+                                "value": 0.15,
+                                "description": "Complete UI overhaul for major version release of commercial text analytics product, utilising ExtJS, RaphaelJS, D3.js."
+                            },
+                            {
+                                "name": "Quantitative Reports",
+                                "value": 0.1,
+                                "description": "Designed and implemented extensive quantitative PDF & HTML reports for a Java text analytics product using iText."
+                            },
+                            {
+                                "name": "Python Web Crawler",
+                                "value": 0.1,
+                                "description": "Implemented a multi-threaded web crawler in Python that supported conditional recursion and scraping based on configurable regular expressions. Also, implemented REST API wrapper for utilisation by commercial text analytics software."
+                            },
+                            {
+                                "name": "Recurrence Analysis Software",
+                                "value": 0.3,
+                                "description": "Lead the development of recurrence analysis software that is the result of ongoing research at the University of Queensland. The software was built as both a SaaS offering and desktop product using technologies such as Python, Django, MongoDB, CherryPy, JavaScript, ExtJS, RaphaelJS, D3.js."
+                            },
+                            {
+                                "name": "Counter-Terrorism Classifier",
+                                "value": 0.2,
+                                "description": "As part of a federal grant, implemented a hierarchical codebook classification system to automatically identify and describe counter-terrorism events within documents both uploaded and fetched from web sources (blogs, government web sites). I was also responsiblie for the creation of a comprehensive software specification document as part of the initial tender process."
+                            },
+                            {
+                                "name": "Twitter Analytics Prototype",
+                                "value": 0.15,
+                                "description": "Designed and implemented a browser-based software prototype for analysing trends in Twitter data. Utilised JavaScript and D3.js to provide multiple interactive data visualisations. Created command- line tools in Python to search, download and process Tweets via the Twitter API."
+                            }
+                        ]
                     },
                     {
                         "startYear": 2013,
                         "endYear": 2015,
                         "company": "Kapiche",
                         "role": "Founder, Chief Architect",
-                        "summary": "As co-founder of Kapiche I have been heavily involved in R&D underpinning the creation of a cutting-edge Python-based text-indexing & analysis platform. Moreover, I have held an essential role in the development of our web-based knowledge discovery and research tool.",
-                        "years": 2.5
+                        "summary": "&bull; Knowledge mining algorithm R&D.<br>&bull; Text storage, indexing & analytics platform development.<br>&bull; Product design & development.<br>&bull; Advanced data visualisations.",
+                        "years": 2.5,
+                        "facets": [
+                            {
+                                "name": "Algorithm Research & Development",
+                                "value": 0.3,
+                                "description": "Researched academic papers to devise and implement novel algorithms for knowledge mining of textual data. Optimised algorithmic performance using NumPy, Cython, and CPU & memory profiling techniques."
+                            },
+                            {
+                                "name": "Text Indexing & Analytics Platform",
+                                "value": 0.3,
+                                "description": "I co-developed an open-source, Python-based text storage and indexing platform, inspired by the desire to add flexible text analytics capabilities to the power of storage and search platforms like Elasticsearch."
+                            },
+                            {
+                                "name": "Data Analytics Product Prototyping",
+                                "value": 0.2,
+                                "description": "Design and rapid-prototyping of bespoke data analytics products across varied domains (search, market research, finance), utilising web technologies such as Compass, Knockout.js, D3.js, Foundation, jQuery, Django, Flask."
+                            },
+                            {
+                                "name": "Knowledge Discovery & Research Tool",
+                                "value": 0.2,
+                                "description": "Extensive reflection and brainstorming to conceive high-level design strategies for our knowledge discovery & research tool. Design and implementation of advanced, interactive data visualisations for exploration of qualitative, textual data."
+                            }
+                        ]
                     }
                 ],
                 "TOTAL_YEARS": 9
             }
         </script>
         <script src="d3.min.js"></script>
+        <script src="opentip-native.min.js"></script>
         <script src="util.js"></script>
         <script src="timeline.js"></script>
     </body>

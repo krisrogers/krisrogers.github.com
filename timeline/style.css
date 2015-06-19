@@ -1,12 +1,19 @@
 body {
     background: url(bg.png);
-    font-family: tahoma;
+    font-family: Raleway, tahoma;
 }
 
 .container {
     width: 1200px;
     height: 700px;
     margin: 0 auto;
+    position: relative;
+}
+.container h1, h4 {
+    position: absolute;
+}
+.container h4 {
+    top: 50px;
 }
 
 svg {
@@ -19,11 +26,6 @@ svg .axis-segment {
     fill: none;
     stroke: black;
     stroke-width: 1px;
-}
-
-svg .axis-spacer {
-    fill: white;
-    stroke: none;
 }
 
 svg .axis-label {
@@ -42,8 +44,23 @@ svg .arc-outer, svg .arc-middle, svg .arc-inner {
     stroke: white;
     stroke-width: 4px;
 }
+svg .arc-outer {
+    cursor: help;
+}
 svg .arc-middle {
     fill: white;
+}
+svg .arc-tick-line {
+    stroke-dasharray: 5 5;
+    stroke-width: 2px;
+}
+svg .arc-tick-line-end {
+    fill: white;
+    stroke-width: 2px;
+}
+
+.company-text-container {
+    position: relative;
 }
 
 .container .history-description {
@@ -54,8 +71,23 @@ svg .arc-middle {
     font-weight: bold;
     letter-spacing: 1px;
     margin-bottom: 5px;
-    text-decoration: underline;
+    text-transform: uppercase;
 }
 .container .history-description .history-role {
+    font-size: 13px;
     font-weight: bold;
+    text-transform: uppercase;
+}
+.container .history-summary {
+    font-size: 16px;
+    line-height: 22px;
+}
+
+.opentip-container {
+    font-family: Raleway, tahoma;
+    max-width: 520px;
+}
+.opentip-container .ot-content {
+    font-size: 16px;
+    line-height: 22px;
 }
