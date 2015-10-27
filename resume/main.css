@@ -9,12 +9,17 @@ hr {
   border-style: none none dotted; 
 }
 
-.header-details .name {
+.header-details .name, .title {
   color: #1149AF;
   display: inline-block;
   font-size: 1.4em;
   letter-spacing: 3px;
   text-transform: uppercase;
+}
+.title {
+  font-size: 0.9em;
+  letter-spacing: 1.5px;
+  margin-top: 0;
 }
 
 .header-details .contact-information, .links-container {
