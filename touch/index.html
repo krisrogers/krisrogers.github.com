@@ -1,0 +1,122 @@
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>RUBI Touch Prototypes</title>
+        <link rel="stylesheet" type="text/css" href="css/d3.parsets.css">
+        <style>
+            table td {
+                padding: 20px;
+            }
+        </style>
+    </head>
+    <body>
+        <table>
+            <tr>
+            <td>
+            <div id="vis2"></div>
+            </td>
+            <td>
+            <div id="vis3"></div>
+            </td>
+            <td>
+            <div id="vis4"></div>
+            </td>
+            </tr>
+        </table>
+        <table>
+            <tr>
+            <td>
+            <div id="vis5"></div>
+            </td>
+            <td>
+            <div id="vis7"></div>
+            </td>
+            <td>
+            <div id="vis9"></div>
+            </td>
+            </tr>
+        </table>
+    </body>
+    <script src="js/lib/d3.js"></script>
+    <script src="js/lib/d3.parsets.js"></script>
+    <script>
+        d3.csv('data.csv').get(function (error, data) {
+            console.log(data);
+            setTimeout(function () {
+                var chart2 = d3.parsets()
+                    .tension(0.5)
+                    .width(400)
+                    .height(400)
+                    .dimensions(["Participant", "Origin", "Touch Location"]);
+                var vis = d3.select("#vis2").append("svg")
+                    .attr("width", chart2.width())
+                    .attr("height", chart2.height());
+                vis.datum(data.filter(function (v) {
+                    return v["Video"].startsWith("1");
+                })).call(chart2);
+
+                var chart3 = d3.parsets()
+                    .tension(0.5)
+                    .width(400)
+                    .height(400)
+                    .dimensions(["Participant", "Origin", "Touch Location"]);
+                var vis = d3.select("#vis3").append("svg")
+                    .attr("width", chart3.width())
+                    .attr("height", chart3.height());
+                vis.datum(data.filter(function (v) {
+                    return v["Video"].startsWith("2");
+                })).call(chart3);
+
+                var chart3 = d3.parsets()
+                    .tension(0.5)
+                    .width(400)
+                    .height(400)
+                    .dimensions(["Participant", "Origin", "Touch Location"]);
+                var vis = d3.select("#vis4").append("svg")
+                    .attr("width", chart3.width())
+                    .attr("height", chart3.height());
+                vis.datum(data.filter(function (v) {
+                    return v["Video"].startsWith("3");
+                })).call(chart3);
+
+                var chart3 = d3.parsets()
+                    .tension(0.5)
+                    .width(400)
+                    .height(400)
+                    .dimensions(["Participant", "Origin", "Touch Location"]);
+                var vis = d3.select("#vis5").append("svg")
+                    .attr("width", chart3.width())
+                    .attr("height", chart3.height());
+                vis.datum(data.filter(function (v) {
+                    return v["Video"].startsWith("4");
+                })).call(chart3);
+
+                var chart3 = d3.parsets()
+                    .tension(0.5)
+                    .width(400)
+                    .height(400)
+                    .dimensions(["Participant", "Origin", "Touch Location"]);
+                var vis = d3.select("#vis7").append("svg")
+                    .attr("width", chart3.width())
+                    .attr("height", chart3.height());
+                vis.datum(data.filter(function (v) {
+                    return v["Video"].startsWith("6");
+                })).call(chart3);
+
+
+                var chart3 = d3.parsets()
+                    .tension(0.5)
+                    .width(400)
+                    .height(400)
+                    .dimensions(["Participant", "Origin", "Touch Location"]);
+                var vis = d3.select("#vis9").append("svg")
+                    .attr("width", chart3.width())
+                    .attr("height", chart3.height());
+                vis.datum(data.filter(function (v) {
+                    return v["Video"].startsWith("8");
+                })).call(chart3);
+
+            }, 200);
+        });          
+    </script>
+</html>
